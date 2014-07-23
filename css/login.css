@@ -2,7 +2,14 @@
 	width: 45%;
 	height: 45%;
 	float: inherit;
-	margin-left: 20%;
-	padding: 1%;
+	margin-top: 10%;
+	margin-left: 27.5%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+	border: 2px;
+	border-color: #DDD;
+	border-style: outset;
 	background-color: #EEE;
 }

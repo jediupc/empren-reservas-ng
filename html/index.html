@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="index">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap.css" />
+
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+  </head>
+  <body>
+
+  	<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+	    <div class="navbar-header">
+        <a class="navbar-brand" href="main.html"> UPC Emprèn</a>
+	    </div>
+
+	    <div class="navbar-right">
+	    		<button type="button" class="btn btn-default"><a href="#/login">Login</a></button>
+	    </div>
+	  </nav>
+
+    <div class="sub-header">
+      <div class="sub-layer">
+        <h3 id="sub-title">Què és l'espai d'emprenedoria?</h3>
+        <p id="sub-title-answer">Espai adreçat a estudiants o recent titulats (< 2 anys) que tinguin un idea de negoci i necessitin un espai per poder‐la transformar en realitat, poden desenvolupar-les en fases inicials rebent formació i assessorament.<br>
+        <br>
+        Emprèn UPC, al qual s’hi podrà accedir amb el carnet UPC durant els 365 dies de l’any, ocupa una superfície de més de 500 m2 i disposa de llocs de treball per a grups d’entre dues i sis persones. Inclou una sala de reunions amb capacitat per a nou persones, així com zones condicionades per a networking i una àrea de recursos compartits. L’espai, que també integra un magatzem i zona de serveis (cuina i menjador), està equipada amb 30 taquilles i xarxa Wi-Fi.<br>
+        <br>
+        Es preveu que el període d’ocupació dels llocs de treball per part dels equips emprenedors sigui d’un màxim d’un any.<br>
+        <br>
+        L’Espai d’Emprenedoria Emprèn UPC és un projecte realitzat conjuntament amb l’Ajuntament de Barcelona (Barcelona Activa).<br>
+      </div>
+    </div>
+
+    <div class="info-reservas">
+      <h3 id="title">Reserva sales de l'àrea d'emprenedoria</h3>
+      <br>
+      <ul id="title-answer">
+        <li>Consulta les aules disponibles per reservar</li>
+        <br>
+        <li>Consulta els horaris de reserva de les diferents aules</li>
+        <br>
+        <li>Fes les teves pròpies reserves de les aules</li>
+        <br>
+        <li>Modifica o cancel·la les teves reserves</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <h4 id="patrocinadors">Patrocinadors Espai</h4>
+      <div id="img-ajunt"></div>
+    </div>
+
+  	<div class="below-navbar">
+	    <div ui-view class="inserted-content"></div>
+	  </div>
+
+    <script type="text/javascript" src="../lib/underscore.js"></script>
+    <script type="text/javascript" src="../lib/angular.js"></script>
+    <script type="text/javascript" src="../lib/angular-ui-router.js"></script>
+    <script type="text/javascript" src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    
+  </body>
+</html>

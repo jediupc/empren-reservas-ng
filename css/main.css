@@ -11,7 +11,7 @@ html, body {
 	font-size: 1.4em;
 }
 
-.collapse {
+.navbar-right {
 	margin-top: 0.5%;
 	margin-right: 2%;
 }
@@ -23,6 +23,9 @@ html, body {
 	float: left;
 	position: relative;
 	font-size: 1.2em;
+	border-right-width: 2px;
+	border-right-style: groove;
+	background-color: #FFF;
 }
 
 .center-area {

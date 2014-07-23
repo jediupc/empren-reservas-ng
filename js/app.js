@@ -1,4 +1,4 @@
-angular.module("uiRouter", ['ui.router'])
+angular.module("reservas", ['ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
