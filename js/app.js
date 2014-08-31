@@ -1,4 +1,4 @@
-angular.module("reservas", ['ui.router'])
+angular.module("reservas", ['ui.router', 'ngCookies'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -6,7 +6,7 @@ angular.module("reservas", ['ui.router'])
         url: '/loading',
         templateUrl: '../html/loading.html',
         onEnter: function(apiService) {
-            apiService.login('admin', 'admin');
+            //apiService.login('admin', 'admin');
         }})
 
     .state('root', {
@@ -21,11 +21,11 @@ angular.module("reservas", ['ui.router'])
         url: '/main',
         templateUrl: '../html/main.html'})
 
-    .state('areas', {
+    .state('main.areas', {
         url: '/areas',
         templateUrl: '../html/areas.html'})
 
-    .state('reservas', {
+    .state('main.reservas', {
         url: '/reservas',
         templateUrl: '../html/reservas.html'})
 

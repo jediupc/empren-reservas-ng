@@ -1,7 +1,11 @@
-angular.module('reservas').factory('apiService', function($q, $http) {
+angular.module('reservas').factory('apiService', function($q, $http, $cookies, $state) {
 
-	var SERVER_URL = "10.182.57.226:8080/api/";
-	var username, password;
+	//var SERVER_URL = "http://10.182.57.226:8080/api/";
+	var SERVER_URL = "http://localhost:8088/api/";
+	var username = $cookies.username;
+	var password = $cookies.password;
+
+	login('flor', 'flor', 0);
 
 	function login(user, pass, rememberMe) {
 		var url = "usuaris";
@@ -10,6 +14,11 @@ angular.module('reservas').factory('apiService', function($q, $http) {
 		password = pass;
 		ajax(url, method, "", "").then(function(data) {
 			console.log(data);
+			if(rememberMe) {
+				$cookies.username = user;
+				$cookies.password = pass;
+			}
+			$state.go('main');
 		}, function(error) {
 			console.log(error);
 		})
@@ -34,6 +43,9 @@ angular.module('reservas').factory('apiService', function($q, $http) {
 		$http(options).then(function(data) {
 			q.resolve(data);
 		}, function(error) {
+			if(error.status === 401) {
+				$state.go('index');
+			}
 			q.reject(error);
 		});
 
