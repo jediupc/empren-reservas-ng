@@ -1,4 +1,4 @@
-angular.module("reservas", ['ui.router', 'ngCookies'])
+angular.module("reservas", ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -27,8 +27,13 @@ angular.module("reservas", ['ui.router', 'ngCookies'])
 
     .state('main.reservas', {
         url: '/reservas',
-        templateUrl: '../html/reservas.html'});
+        templateUrl: '../html/reservas.html'})
 
+    .state('main.calendar', {
+      url: '/calendar',
+      templateUrl:'../html/calendar.html',
+      controller: 'calendarCtrl'
+    });
     $urlRouterProvider.otherwise('/root');
 });
 
