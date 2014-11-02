@@ -1,7 +1,7 @@
 angular.module('reservas').factory('apiService', function($q, $http, $cookies, $state) {
 
-	var SERVER_URL = "http://10.85.107.202:8088/api/";
-	//var SERVER_URL = "http://localhost:8088/api/";
+	//var SERVER_URL = "http://10.85.107.202:8088/api/";
+	var SERVER_URL = "http://localhost:8088/api/";
 	var username = $cookies.username;
 	var password = $cookies.password;
 
@@ -13,7 +13,7 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
     login(username, password, true);
   }
 
-	function login(user, pass, rememberMe) {
+	function login(user, pass) {
 		var url = "usuaris";
 		var method = "GET";
 		username = user;
@@ -37,8 +37,8 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		var method = "GET";
 		username = null;
 		password = null;
-    $cookies.username = "";
-    $cookies.password = "";
+    	$cookies.username = "";
+    	$cookies.password = "";
 		ajax(url , method, "", "").then(function(data) {
 			$state.go('index');
 		}, function(error) {
@@ -142,9 +142,11 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		return q.promise;
 	}
 
-	return {login: login,
+	return {
+	login: login,
     logOff: logOff,
     getEspais: getEspais,
     tryLogin: tryLogin,
-  model:_model};
+  	model:_model, 
+  	createUser: createUser};
 });
