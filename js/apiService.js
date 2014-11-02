@@ -114,6 +114,12 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
     return q.promise;
   }
 
+  function setReserva() {
+    var url = "reserves";
+    var method = "POST";
+
+  }
+
 	function ajax(url, method, params, data) {
 		
 		var options = {
