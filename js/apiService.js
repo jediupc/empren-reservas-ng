@@ -1,11 +1,17 @@
 angular.module('reservas').factory('apiService', function($q, $http, $cookies, $state) {
 
-	//var SERVER_URL = "http://10.182.57.226:8080/api/";
-	var SERVER_URL = "http://localhost:8088/api/";
+	var SERVER_URL = "http://10.85.107.202:8088/api/";
+	//var SERVER_URL = "http://localhost:8088/api/";
 	var username = $cookies.username;
 	var password = $cookies.password;
 
-	login('flor', 'flor', 1);
+  var _model = {user: null, espais: null, reservas:null};
+	//login('flor', 'flor', 1);
+
+  function tryLogin() {
+    //try cookies
+    login(username, password, true);
+  }
 
 	function login(user, pass, rememberMe) {
 		var url = "usuaris";
@@ -13,13 +19,16 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		username = user;
 		password = pass;
 		ajax(url, method, "", "").then(function(data) {
-			if(rememberMe) {
+			//if(rememberMe) {
 				$cookies.username = user;
 				$cookies.password = pass;
-			}
+			//}
+
+      _model.user = data[0];
 			$state.go('main');
 		}, function(error) {
 			console.log(error);
+      $state.go('index');
 		})
 	}
 
@@ -28,6 +37,8 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		var method = "GET";
 		username = null;
 		password = null;
+    $cookies.username = "";
+    $cookies.password = "";
 		ajax(url , method, "", "").then(function(data) {
 			$state.go('index');
 		}, function(error) {
@@ -42,6 +53,7 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 
 		ajax(url, method, "", "").then(function(data) {
 			q.resolve(data);
+      _model.espais = data;
 		}, function(error) {
 			if(error.status === 401) {
 				$state.go('index');
@@ -51,6 +63,56 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 
 		return q.promise;
 	}
+
+  function createEspai(codi, descripcio) {
+    var url = "espais";
+    var method = "POST";
+    var q = q.defer();
+
+    var data = 'codi=' + codi + '&descripcio=' + descripcio;
+
+    ajax(url, method, "", data).then(function(data) {
+      getEspais();
+    }, function(err) {
+
+    });
+
+    return q.promise;
+  }
+
+  function createUser(nom_usuari, contrasenya, nom, cognoms) {
+    var url = 'usuaris';
+    var method = 'POST';
+    var data = 'nom_usuari=' + nom_usuari + "&contrasenya=" + contrasenya + "&nom=" + nom + "&cognoms=" + cognoms + "&es_admin=false";
+
+    var q = $q.defer();
+
+    ajax(url, method, "", data).then(function(data) {
+      q.resolve(data);
+    }, function(err) {
+      q.reject(err);
+    });
+
+    return q.promise;
+  }
+
+  function getReservas(espai) {
+    var url = 'reserves';
+    var method = 'GET';
+
+    var q = q.defer();
+
+    var data = "espai=" + espai;
+
+    ajax(url, method, "", data).then(function(data){
+      _model.reservas = data;
+      q.resolve(data);
+    }, function(err) {
+      q.reject(err);
+    });
+
+    return q.promise;
+  }
 
 	function ajax(url, method, params, data) {
 		
@@ -64,7 +126,7 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 				X_PASSWORD: password
 			},
 			timeout: 5000   
-		}
+		};
 
 		var q = $q.defer();
 
@@ -80,5 +142,9 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		return q.promise;
 	}
 
-	return {login: login, logOff: logOff, getEspais: getEspais};
-})
+	return {login: login,
+    logOff: logOff,
+    getEspais: getEspais,
+    tryLogin: tryLogin,
+  model:_model};
+});
