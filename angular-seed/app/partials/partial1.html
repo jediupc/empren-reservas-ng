@@ -1,0 +1,20 @@
+<form ng-submit="cosa.name != '' && new(cosa)">
+	Nuevo espacio: <input type="text" ng-model="cosa.name"/>
+	<input type="submit" value="Guardar">
+</form>
+<table class="table table-striped">
+	<tr ng-repeat="row in datos">
+		<td ng-show="editing($index)">
+			<form ng-submit="update($index)">
+				<input ng-model="updateForm.name" type="text"/>
+				<input type="submit" class="btn btn-default" value="Guardar"/>
+				<!--descartar??-->
+			</form>
+		</td>
+		<td ng-hide="editing($index)" ng-click="select($index)"><button type="button" class="btn btn-link">{{row.name}}</button></td>
+		<td ng-if="$index === selectedRow && !editing($index)">
+			<button ng-click="delete($index)" type="button" class="btn btn-default">Eliminar</button>
+			<button ng-click="startToEdit($index)" type="button" class="btn btn-default">Editar</button>
+		</td>
+	</tr>
+</table>
