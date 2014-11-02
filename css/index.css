@@ -21,8 +21,27 @@ html, body {
 }
 
 .navbar-right {
+	width: 20%;
 	margin-top: 0.8%;
+	margin-right: 0;
+	margin-left: auto;
+}
+
+#loginButton {
+	float: right;
+	margin-right: 5%;
+}
+
+#signOutButton {
+	float: right;
+	margin-right: 5%;
+}
+
+#signUpButton {
+	float: right;
 	margin-right: 2%;
+	background-color: transparent;
+	border: none;
 }
 
 .sub-header {
