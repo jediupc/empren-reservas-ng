@@ -2,17 +2,12 @@ angular.module("reservas", ['ui.router', 'ngCookies'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('loading', {
-        url: '/loading',
-        templateUrl: '../html/loading.html',
-        onEnter: function(apiService) {
-            apiService.login('admin', 'admin');
-        }
-    })
-
     .state('root', {
         url: '/root',
-        templateUrl: '../html/root.html'})
+        templateUrl: '../html/root.html',
+        onEnter: function(apiService) {
+          apiService.tryLogin();
+        }})
 
     .state('index', {
         url: '/index',
@@ -22,7 +17,8 @@ angular.module("reservas", ['ui.router', 'ngCookies'])
     .state('main', {
         url: '/main',
         templateUrl: '../html/main.html',
-        controller: 'mainCtrl'})
+        controller: 'mainCtrl'
+        })
 
     .state('main.areas', {
         url: '/areas',
@@ -31,10 +27,10 @@ angular.module("reservas", ['ui.router', 'ngCookies'])
 
     .state('main.reservas', {
         url: '/reservas',
-        templateUrl: '../html/reservas.html'})
+        templateUrl: '../html/reservas.html'});
 
-    $urlRouterProvider.otherwise('/loading');
-})
+    $urlRouterProvider.otherwise('/root');
+});
 
 /*
 'use strict';
