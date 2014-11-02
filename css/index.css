@@ -3,12 +3,17 @@ html, body {
 	height: 100%;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+::-moz-scrollbar { 
+    display: none;
+}
+
 .navbar {
 	padding: 0.5%;
-	min-height: 50px;
-	margin-bottom: 20px;
-	border: 1px;
-	border-color: transparent;
+	height: 64px;
 }
 
 .navbar-brand {
@@ -16,7 +21,7 @@ html, body {
 }
 
 .navbar-right {
-	margin-top: 0.5%;
+	margin-top: 0.8%;
 	margin-right: 2%;
 }
 
@@ -30,13 +35,18 @@ html, body {
 }
 
 .sub-layer {
-	width: 70%;
-	height: 400px;
-	margin-top: 75px; /*64+150/2*/
+	min-width: 70%;
+	max-width: 80%;
+	min-height: 400px; /*400px*/
+	max-height: 500px;
+	margin-top: 6%; /*64+150/2*/
+	margin-bottom: 6%;
 	margin-left: 15%; 
+	margin-right: 15%;
 	background-color: rgba(255, 255, 255, 0.7);
 	position: absolute;
 	padding-top: 3%;
+	overflow: scroll;
 }
 
 .sub-layer #sub-title {
@@ -66,9 +76,18 @@ html, body {
 
 .footer {
 	width: 100%;
-	height: 13%;
+	height: 40%;
 	background-color: #dddddc;
-	border-top: groove;
+	border-top: solid;
+	border-top-color: #ccc;
+}
+
+.footer #direccion {
+	margin-top: 3%;
+	margin-bottom: 3%;
+	margin-right: 10%;
+	margin-left: 10%;
+	color: #999;
 }
 
 .footer #patrocinadors {
