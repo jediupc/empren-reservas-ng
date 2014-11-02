@@ -5,7 +5,7 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 	var username = $cookies.username;
 	var password = $cookies.password;
 
-	login('flor', 'flor', 0);
+	login('flor', 'flor', 1);
 
 	function login(user, pass, rememberMe) {
 		var url = "usuaris";
@@ -13,7 +13,6 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		username = user;
 		password = pass;
 		ajax(url, method, "", "").then(function(data) {
-			console.log(data);
 			if(rememberMe) {
 				$cookies.username = user;
 				$cookies.password = pass;
@@ -22,6 +21,35 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		}, function(error) {
 			console.log(error);
 		})
+	}
+
+	function logOff() {
+		var url = "usuaris";
+		var method = "GET";
+		username = null;
+		password = null;
+		ajax(url , method, "", "").then(function(data) {
+			$state.go('index');
+		}, function(error) {
+			console.log(error);
+		})
+	}
+
+	function getEspais() {
+		var url = "espais";
+		var method = "GET";
+		var q = $q.defer();
+
+		ajax(url, method, "", "").then(function(data) {
+			q.resolve(data);
+		}, function(error) {
+			if(error.status === 401) {
+				$state.go('index');
+			}
+			q.reject(error);
+		});
+
+		return q.promise;
 	}
 
 	function ajax(url, method, params, data) {
@@ -52,5 +80,5 @@ angular.module('reservas').factory('apiService', function($q, $http, $cookies, $
 		return q.promise;
 	}
 
-	return {login: login};
+	return {login: login, logOff: logOff, getEspais: getEspais};
 })

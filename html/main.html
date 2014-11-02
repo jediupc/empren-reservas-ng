@@ -4,11 +4,11 @@
 	    </div>
 
       <div class="navbar-right">
-        <button data-toggle="modal" class="btn btn-default" href="#myModal">Sign Out</button>
+        <button data-toggle="modal" class="btn btn-default" ng-click="logOff()">Sign Out</button>
       </div>
 	  </nav>
 
-  	<div class="side-bar">
+  	<div class="side-bar" id="side-div">
   		<div class="navbar-stacked">
 		  	<ul class="nav nav-pills nav-stacked">
           <li><a ui-sref=".reservas">Mis Reservas</a></li>

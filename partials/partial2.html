@@ -1,0 +1,16 @@
+Filtrar reservas por espacio:<input type="text"/>
+<button>Nueva reserva</button>
+<div>
+    <div ng-controller="TimePickerCtrl">Selected date is: 
+    	<em>{{dt | date:'fullDate' }} 
+    		<timepicker ng-model="time" minute-step="30" shows-meridian="false">
+    			
+    		</timepicker>
+    	</em>
+    </div>
+
+    <div style="display:inline-block; min-height:290px;">
+        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+    </div>
+
+</div>

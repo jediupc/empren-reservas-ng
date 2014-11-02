@@ -1,3 +1,10 @@
-<div>
-	<h3>Areas</h3>
+<div class="areaBox">
+	<h2><span>Aules Disponibles:</span></h2>
+	<span ng-repeat="i in json_data.data"> 
+	<div class="rowTable" id="top">
+		<h4>{{i.codi}} </h4>
+	</div>
+	<div class="rowTable" id="bottom">
+		<h4>{{i.descripcio}} </h4>
+	</div></span>
 </div>
