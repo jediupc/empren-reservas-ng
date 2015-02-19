@@ -1,7 +1,28 @@
 
-<div style="display:inline-block; min-height:290px;">
-  <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
-</div>
+  <h1>{{espai_nom}}</h1>
 
-<form ng-submit="novaReserva()"></form>
+  <div style="display:inline-block; min-height:290px;">
+    <datepicker ng-model="dt" min-date="minDate" show-weeks="false" date-disabled="disabled(date, mode)" starting-day="1" class="well well-sm"></datepicker>
+  </div>
 
+  <h3>Nova Reserva el dia {{dt | date:'dd/mm/yyyy'}}</h3>
+  <h4>Les reserves son d'una hora.</h4>
+  <form ng-submit="novaReserva()">
+
+    <select ng-model="hourSelected" ng-options="hour for hour in hours" class="form-control select-reserva">
+      <option value="">Hora de la reserva</option>
+    </select>
+    <br>
+    <button type="submit" class="btn btn-info">Fer reserva</button>
+
+  </form>
+
+  <h3>Reserves del dia  {{dt | date:'dd/mm/yyyy'}}</h3>
+  <div ng-repeat="reserva in reservesDia">
+    <div class="panel panel-info etiqueta-reserva">
+      <div class="panel-body">
+        <h5 class="pull-left">{{reserva.user}}</h5>
+        <h2 class="pull-right">{{reserva.hour}}:00</h2>
+      </div>
+    </div>
+  </div>

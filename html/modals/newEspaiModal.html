@@ -1,0 +1,12 @@
+<div id="newEspaiModalBox">
+  <div class="modal-header">
+    <button class="close" ng-click="cancel()">×</button>
+    <h3>Dades de l'espai:</h3>
+  </div>
+  <input type="text" class="form-control" placeholder="Nom" required="" autofocus="" ng-model="name">
+  <input type="text" class="form-control" placeholder="Descripció" required="" autofocus="" ng-model="description">
+  <div class="modal-footer">
+    <a href="#" class="btn" ng-click="cancel()">Tanca</a>
+    <a class="btn btn-primary" data-dismiss="modal" ng-click="createEspai(name, description)">Crear espai</a>
+  </div>
+</div>

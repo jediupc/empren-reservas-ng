@@ -6,26 +6,9 @@
     </div>
 
     <div class="navbar-right">
-        <button data-toggle="modal" class="btn btn-default" id="loginButton" href="#myModal">Login</button>
+        <!--<button data-toggle="modal" class="btn btn-default" id="loginButton" href="#myModal">Login</button>-->
+      <button class="btn btn-default" id="loginButton" ng-click="openLoginModal()">Login</button>
     </div>
-  </nav>
-
-  <div id="myModal" class="modal fade" style="display: none; ">
-    <div id="myModalBox">
-      <div class="modal-header">
-        <button class="close" data-dismiss="modal">×</button>
-        <h3>Escrigui les seves dades:</h3>
-      </div>
-      <input type="text" class="form-control" placeholder="Usuari" required="" autofocus="" ng-model="username">
-      <input type="password" class="form-control" placeholder="Contrasenya" required="" ng-model="password">
-      <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Tanca</a>
-        <a class="btn btn-primary" data-dismiss="modal" ng-click="login(username, password)">Login</a>
-      </div>
-    </div>
-  </div>
-
-
   </nav>
 
   <div class="sub-header">

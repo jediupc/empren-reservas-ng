@@ -1,0 +1,17 @@
+<div id="myModalBox">
+  <div class="modal-header">
+    <button class="close" ng-click="cancel()">×</button>
+    <h3>Ompli les seves de l'usuari:</h3>
+  </div>
+  <input type="text" class="form-control" placeholder="Nom" required="" autofocus="" ng-model="name">
+  <input type="text" class="form-control" placeholder="Cognom" required="" autofocus="" ng-model="surname">
+  <input type="text" class="form-control" placeholder="Usuari" required="" autofocus="" ng-model="username">
+  <input type="password" class="form-control" placeholder="Contrasenya" required="" ng-model="password">
+
+  <span class="text-center text-success">{{textSuccess}}</span>
+  <div class="modal-footer">
+    <a href="#" class="btn" ng-click="cancel()">Tanca</a>
+    <a class="btn btn-primary" data-dismiss="modal" ng-click="createUser(username, password, name, surname)">Crear usuari</a>
+  </div>
+</div>
+    

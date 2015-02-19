@@ -1,11 +1,16 @@
-<div class="areaBox">
-	<h2><span>Aules Disponibles:</span></h2>
-	<span ng-repeat="i in json_data.data"> 
-	<div class="rowTable" id="top">
-		<h4>{{i.codi}} </h4>
-		<button id="calendarButton"><a ui-sref="main.calendar">Calendario</a></button>
-	</div>
-	<div class="rowTable" id="bottom">
-		<h4>{{i.descripcio}} </h4>
-	</div></span>
-</div>
+
+  <h2><span>Espais disponibles:</span></h2>
+
+  <div class="panel panel-info" ng-repeat="i in espais">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{i.codi}} <button ng-if="es_admin()" class="btn btn-sm btn-danger" ng-click="openDeleteEspaiModal(i._id)">Eliminar espai</button></h3>
+      <button class="btn btn-default pull-right btn-calendari" ui-sref="main.calendar({ espai_id : i._id, espai_nom : i.codi })">Veure calendari de reserves <i
+        class="glyphicon glyphicon-arrow-right"></i></button>
+    </div>
+    <div class="panel-body">
+      {{i.descripcio}}
+    </div>
+  </div>
+
+
+

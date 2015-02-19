@@ -1,3 +1,21 @@
-<div>
-	<h3>Reservas</h3>
-</div>
+<h3>Les meves reserves</h3>
+
+	<div ng-repeat="reserva in reservas | orderBy : 'data'" class="panel panel-info etiqueta-mi-reserva">
+		<div class="espai-reserva">
+			<h5>{{reserva.espai}}</h5>
+			<span ng-if="es_admin()">{{reserva.usuari}}</span>
+		</div>
+		<div class="data-reserva">
+			<div class="dia-reserva">
+				<span>{{reserva.data | date: ' dd-MM-yyyy'}}</span>
+			</div>
+			<div class="hora-reserva">
+				<h3>{{reserva.hora }}:00</h3>
+			</div>
+
+		</div>
+		<div class="elimina-reserva">
+			<i class="glyphicon glyphicon-remove" ng-click="openDeleteModal(reserva._id)"></i>
+		</div>
+
+	</div>

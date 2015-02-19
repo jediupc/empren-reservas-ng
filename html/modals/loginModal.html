@@ -1,0 +1,17 @@
+<div class="loginModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Escrigui les seves dades:</h3>
+  </div>
+  <div class="modal-body">
+    <input type="text" class="form-control" placeholder="Usuari" required="" autofocus="" ng-model="data.username">
+    <input type="password" class="form-control" placeholder="Contrasenya" required="" ng-model="data.password">
+    <span class="text-danger">{{error}}</span>
+  </div>
+
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Tanca</a>
+    <a class="btn btn-primary" data-dismiss="modal" ng-click="login()">Login</a>
+  </div>
+</div>
+

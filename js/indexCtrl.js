@@ -1,11 +1,15 @@
 angular.module('reservas')
-	.controller("indexCtrl", function($scope, apiService) {
+	.controller("indexCtrl", function($scope, $state, $modal) {
 		
 		$scope.username = "";
 		$scope.password = "";
 
-		$scope.login = function(user, password) {
-			apiService.login(user,password);
+		$scope.openLoginModal = function() {
+			$modal.open({
+				templateUrl: 'modals/loginModal.html',
+				controller: 'loginModalController',
+				size: 300
+			});
 		}
 
 	});

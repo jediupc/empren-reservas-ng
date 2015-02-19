@@ -1,0 +1,36 @@
+<div>
+  <h1>{{user.nom}} {{user.cognoms}}</h1>
+
+  <div>
+    <h3>Cambiar contrasenya</h3>
+
+    <form ng-submit="cambiarContrasenya()">
+      <div class="form-group">
+        <label>Antiga contrasenya</label>
+        <input class="form-control" type="password" ng-model="data.oldPassword">
+      </div>
+
+      <div class="form-group">
+        <label>Nova contrasenya</label>
+        <input class="form-control" type="password" ng-model="data.newPassword">
+      </div>
+      <div class="form-group">
+        <label>Repeteix la nova contraseña</label>
+        <input class="form-control" type="password" ng-model="data.repeatNewPassword">
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-info btn-lg" value="Cambiar">
+      </div>
+
+      <div ng-if="errorText">
+        <label class="text-danger">{{errorText}}</label>
+
+      </div>
+      <div>
+        <label class="text-success">{{successText}}</label>
+      </div>
+
+    </form>
+  </div>
+</div>

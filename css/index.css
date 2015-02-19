@@ -3,6 +3,7 @@ html, body {
 	height: 100%;
 }
 
+/*
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -10,7 +11,7 @@ html, body {
 ::-moz-scrollbar { 
     display: none;
 }
-
+*/
 .navbar {
 	padding: 0.5%;
 	height: 64px;
@@ -27,6 +28,13 @@ html, body {
 	margin-left: auto;
 }
 
+/*
+ Fix for getting the 3 buttons on one line
+*/
+div.navbar-right  {
+	width: 500px;
+}
+
 #loginButton {
 	float: right;
 	margin-right: 5%;
@@ -34,14 +42,17 @@ html, body {
 
 #signOutButton {
 	float: right;
-	margin-right: 5%;
+
 }
 
 #signUpButton {
 	float: right;
-	margin-right: 2%;
-	background-color: transparent;
-	border: none;
+
+}
+
+#nouEspaiButton {
+	float: right;
+
 }
 
 .sub-header {
@@ -50,7 +61,7 @@ html, body {
 	margin-top: 64px;
 	background-image: url('../img/panoramica_upc2.jpg'); 
 	background-size: cover;
-	background-repeat: none;
+	background-repeat: no-repeat;
 }
 
 .sub-layer {
@@ -65,7 +76,7 @@ html, body {
 	background-color: rgba(255, 255, 255, 0.7);
 	position: absolute;
 	padding-top: 3%;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .sub-layer #sub-title {
@@ -143,8 +154,21 @@ html, body {
 	padding-bottom: 3%;
 	padding-left: 5%;
 	padding-right: 5%;
-	margin-top: 7%;
-	margin-bottom: 7%;
-	margin-left: 25%;
-	margin-right: 25%;
+}
+
+#newEspaiModalBox {
+	background-color: white;
+	opacity: 0.9;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#myModalBox input{
+	margin-bottom:5%;
+}
+
+#newEspaiModalBox input{
+	margin-bottom:5%;
 }
