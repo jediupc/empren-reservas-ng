@@ -1,8 +1,8 @@
 angular.module('reservas').factory('apiService', function($q, $http, $cookies, $state, $window) {
 
-	//var SERVER_URL = "http://10.85.107.202:8088/api/";
+	var SERVER_URL = "http://188.166.55.162/";
 	//var SERVER_URL = "http://192.168.1.100:8080/"
-	var SERVER_URL = "http://localhost:8080/";
+	//var SERVER_URL = "http://localhost:8080/";
 
   var _model = {user: null, espais: null, reservas: null};
 	//login('flor', 'flor', 1);
