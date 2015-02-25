@@ -14,7 +14,7 @@ angular.module('reservas')
 
 			$scope.openNewUserModal = function() {
 				$modal.open({
-					templateUrl: 'modals/newUserModal.html',
+					templateUrl: 'html/modals/newUserModal.html',
 					controller:'newUserModalController',
 					size: 300
 				});
@@ -22,7 +22,7 @@ angular.module('reservas')
 
 			$scope.openNewEspaiModal = function() {
 				$modal.open({
-					templateUrl: 'modals/newEspaiModal.html',
+					templateUrl: 'html/modals/newEspaiModal.html',
 					controller:'newEspaiModalController',
 					size: 300
 				})

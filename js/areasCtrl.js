@@ -12,7 +12,7 @@ angular.module('reservas')
 
 				var size = 300;
 				var modalInstance = $modal.open({
-					templateUrl: 'modals/deleteEspaiModal.html',
+					templateUrl: 'html/modals/deleteEspaiModal.html',
 					controller: 'deleteEspaiModalController',
 					size: size
 				});

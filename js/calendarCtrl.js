@@ -147,7 +147,7 @@ angular.module('reservas').controller('calendarCtrl', function($scope, $statePar
 
     var size = 300;
     var modalInstance = $modal.open({
-      templateUrl: 'modals/errorModal.html',
+      templateUrl: 'html/modals/errorModal.html',
       controller: 'errorModalController',
       size: size,
       resolve: {

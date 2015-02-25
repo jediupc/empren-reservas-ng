@@ -59,7 +59,7 @@ angular.module('reservas').controller('reservasCtrl', function($scope, apiServic
 
     var size = 300;
     var modalInstance = $modal.open({
-      templateUrl: 'modals/deleteModal.html',
+      templateUrl: 'html/modals/deleteModal.html',
       controller: 'deleteModalController',
       size: size
     });

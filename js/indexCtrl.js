@@ -6,7 +6,7 @@ angular.module('reservas')
 
 		$scope.openLoginModal = function() {
 			$modal.open({
-				templateUrl: 'modals/loginModal.html',
+				templateUrl: 'html/modals/loginModal.html',
 				controller: 'loginModalController',
 				size: 300
 			});

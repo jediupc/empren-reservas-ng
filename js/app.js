@@ -2,16 +2,17 @@ angular.module("reservas", ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('root', {
+      /*.state('root', {
         url: '/root',
-        templateUrl: '../html/root.html',
+        templateUrl: 'root.html',
+        abstract: true,
         onEnter: function (apiService, $state) {
 
-          /*apiService.login("admin", "admin").then(function(){
-            $state.go('main.areas');
-          }, function() {
-
-          });*/
+          //apiService.login("admin", "admin").then(function(){
+          //  $state.go('main.areas');
+          //}, function() {
+          //
+          //});
 
           apiService.tryLogin().then(function() {
             $state.go('main.areas');
@@ -19,11 +20,11 @@ angular.module("reservas", ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
           });
         }
-      })
+      })*/
 
       .state('index', {
         url: '/index',
-        templateUrl: '../html/index.html',
+        templateUrl: 'html/index.html',
         controller: 'indexCtrl',
         onEnter: function (apiService, $state) {
           apiService.tryLogin().then(function() {
@@ -36,30 +37,30 @@ angular.module("reservas", ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
       .state('main', {
         url: '/main',
-        templateUrl: '../html/main.html',
+        templateUrl: 'html/main.html',
         controller: 'mainCtrl',
         abstract:true
       })
       .state('main.account', {
         url: '/account',
-        templateUrl: '../html/account.html',
+        templateUrl: 'html/account.html',
         controller: 'accountController'
       })
       .state('main.areas', {
         url: '/areas',
-        templateUrl: '../html/areas.html',
+        templateUrl: 'html/areas.html',
         controller: 'areasCtrl'
       })
 
       .state('main.reservas', {
         url: '/reservas',
         controller: 'reservasCtrl',
-        templateUrl: '../html/reservas.html'
+        templateUrl: 'html/reservas.html'
       })
 
       .state('main.calendar', {
         url: '/{espai_id}/calendar/{espai_nom}',
-        templateUrl: '../html/calendar.html',
+        templateUrl: 'html/calendar.html',
         controller: 'calendarCtrl'
       });
     $urlRouterProvider.otherwise('/index');
