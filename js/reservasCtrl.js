@@ -20,7 +20,7 @@ angular.module('reservas').controller('reservasCtrl', function($scope, apiServic
       var arr = data.data;
       for(var i = 0; i < arr.length; ++i) {
         var date = new Date(new Date(arr[i].data_hora));
-        if(arr[i].usuari !== null) {
+        if(arr[i].usuari._id == $scope.model.user._id) {
           $scope.reservas.push({
             data: date,
             hora: date.getUTCHours(),
