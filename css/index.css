@@ -5,8 +5,11 @@ html, body {
 
 .navbar {
 	padding: 0.5%;
-	height: 64px;
+	min-height: 64px;
+	max-height: 100px;
 }
+
+.navbar-header
 
 .navbar-brand {
 	font-size: 1.4em;
