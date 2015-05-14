@@ -5,7 +5,7 @@
     <datepicker ng-model="dt" min-date="minDate" show-weeks="false" date-disabled="disabled(date, mode)" starting-day="1" class="well well-sm"></datepicker>
   </div>
 
-  <h3>Nova Reserva el dia {{dt | date:'dd/mm/yyyy'}}</h3>
+  <h3>Nova Reserva el dia {{dt | date:'dd/MM/yyyy'}}</h3>
   <h4>Les reserves son d'una hora.</h4>
   <form ng-submit="novaReserva()">
 
@@ -17,7 +17,7 @@
 
   </form>
 
-  <h3>Reserves del dia  {{dt | date:'dd/mm/yyyy'}}</h3>
+  <h3>Reserves del dia  {{dt | date:'dd/MM/yyyy'}}</h3>
   <div ng-repeat="reserva in reservesDia">
     <div class="panel panel-info etiqueta-reserva">
       <div class="panel-body">
